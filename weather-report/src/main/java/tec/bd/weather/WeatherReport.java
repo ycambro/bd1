@@ -22,9 +22,14 @@ public class WeatherReport {
             throw new IllegalArgumentException("Zip code out of range");
         }
 
-        var temperature = this.openWeatherService.getTemperature(zipCode);
-        var report = new Report();
-        report.setTemperature(temperature);
-        return report;
+        if (zipCode == 0) {
+            throw new IllegalArgumentException("Zip code equals to zero does not exists");
+        }
+
+        return this.openWeatherService.byZipCode(zipCode);
+    }
+
+    public Report getByCity(String city) {
+        return this.openWeatherService.byCity(city);
     }
 }
