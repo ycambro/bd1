@@ -1,4 +1,4 @@
-package tec.bd.weather.service;
+package tec.bd.openweather;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -427,54 +427,4 @@ public class OpenWeatherReport {
                     '}';
         }
     }
-
-/*
-
-{
-    "base": "stations",
-    "clouds": {
-        "all": 100
-    },
-    "cod": 200,
-    "coord": {
-        "lat": 10.0167,
-        "lon": -84.2167
-    },
-    "dt": 1627956160,
-    "id": 3624955,
-    "main": {
-        "feels_like": 294.08,
-        "humidity": 85,
-        "pressure": 1016,
-        "temp": 293.75,
-        "temp_max": 294,
-        "temp_min": 293.75
-    },
-    "name": "Alajuela",
-    "sys": {
-        "country": "CR",
-        "id": 2004086,
-        "sunrise": 1627903597,
-        "sunset": 1627948769,
-        "type": 2
-    },
-    "timezone": -21600,
-    "visibility": 1911,
-    "weather": [
-        {
-            "description": "nubes",
-            "icon": "04n",
-            "id": 804,
-            "main": "Clouds"
-        }
-    ],
-    "wind": {
-        "deg": 205,
-        "gust": 1.33,
-        "speed": 0.58
-    }
-}
-
-* */
-
 }

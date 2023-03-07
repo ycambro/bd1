@@ -2,7 +2,7 @@ package tec.bd.weather.service;
 
 import tec.bd.weather.model.Report;
 
-public interface WeatherService {
+public interface WeatherProvider {
 
     Report getByZipCode(String zipCode);
 
