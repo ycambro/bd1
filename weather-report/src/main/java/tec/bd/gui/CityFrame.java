@@ -15,6 +15,7 @@ import java.util.Date;
 
 public class CityFrame extends JDialog implements ActionListener {
     private JButton cancel;
+
     private JButton get;
 
     private JDialog dialog;
