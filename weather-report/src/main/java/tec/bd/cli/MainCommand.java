@@ -6,6 +6,7 @@ import picocli.CommandLine.HelpCommand;
 @Command(name = "WeatherReport", subcommands = {
                 CityCommand.class,
                 ZipCodeCommand.class,
+                GUICommand.class,
                 HelpCommand.class
 }, description = "Weather forecasts for cities around the world")
 public class MainCommand implements Runnable {
