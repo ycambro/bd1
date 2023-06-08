@@ -55,5 +55,5 @@ public class Queries {
 
         public static final String REVIEW_UPDATE_REVIEW = "update REVIEW set rating = ?, review_text = ?, created_on = ?, client_id = ?, movie_id = ?";
 
-        public static final String LOG_REQUEST_QUERY = "select * from BLOCKBUSTER_LOG order by created_on desc_limit ?";
+        public static final String BLOCKBUSTERLOG_REQUEST_QUERY = "select * from BLOCKBUSTER_LOG order by created_on desc_limit ?";
 }

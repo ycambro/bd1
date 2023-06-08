@@ -12,6 +12,8 @@ import tec.bd.repository.RentalsRepository;
 import tec.bd.repository.RentalsRepositoryImpl;
 import tec.bd.repository.MovieRepository;
 import tec.bd.repository.MovieRepositoryImpl;
+import tec.bd.repository.BlockbusterLogRepository;
+import tec.bd.repository.BlockbusterLogRepositoryImpl;
 import tec.bd.services.CategoryService;
 import tec.bd.services.CategoryServiceImpl;
 import tec.bd.services.ClientService;
@@ -22,7 +24,8 @@ import tec.bd.services.RentalsService;
 import tec.bd.services.RentalsServiceImpl;
 import tec.bd.services.MovieService;
 import tec.bd.services.MovieServiceImpl;
-
+import tec.bd.services.BlockbusterLogService;
+import tec.bd.services.BlockbusterLogServiceImpl;
 public class ApplicationContext {
 
     public CategoryRepository categoryRepository;
@@ -30,11 +33,13 @@ public class ApplicationContext {
     public ClientRepository clientRepository;
     public ReviewRepository reviewRepository;
     public RentalsRepository rentalsRepository;
+    public BlockbusterLogRepository blockBusterLogRepository;
     public MovieService movieService;
     public CategoryService categoryService;
     public ClientService clientService;
     public ReviewService reviewService;
     public RentalsService rentalsService;
+    public BlockbusterLogService blockbusterLogService;
 
     private ApplicationContext() {
 
@@ -47,6 +52,7 @@ public class ApplicationContext {
 
         appContext.categoryRepository = initCategoryRepository(hikariConfig);
         appContext.movieRepository = initMovieRepository(hikariConfig);
+        appContext.blockBusterLogRepository = initBlockbusterLogRepository(hikariConfig);
         appContext.clientRepository = initClientRepository(hikariConfig);
         appContext.reviewRepository = initReviewRepository(hikariConfig);
         appContext.rentalsRepository = initRentalsRepository(hikariConfig);
@@ -55,6 +61,7 @@ public class ApplicationContext {
         appContext.clientService = initClientService(appContext.clientRepository);
         appContext.reviewService = initReviewService(appContext.reviewRepository, appContext.clientRepository, appContext.movieRepository);
         appContext.rentalsService = initRentalsService(appContext.rentalsRepository, appContext.clientRepository, appContext.movieRepository);
+        appContext.blockbusterLogService = initBlockbusterLogService(appContext.blockBusterLogRepository);
 
         return appContext;
     }
@@ -103,6 +110,10 @@ public class ApplicationContext {
         return new RentalsRepositoryImpl(hikariDataSource);
     }
 
+    private static BlockbusterLogRepository initBlockbusterLogRepository(HikariDataSource hikariDataSource) {
+        return new BlockbusterLogRepositoryImpl(hikariDataSource);
+    }
+
     private static MovieService initMovieService(MovieRepository movieRepository,
             CategoryRepository categoryRepository) {
         return new MovieServiceImpl(movieRepository, categoryRepository);
@@ -124,6 +135,10 @@ public class ApplicationContext {
     private static ReviewService initReviewService(ReviewRepository reviewRepository,
             ClientRepository clientRepository, MovieRepository movieRepository) {
         return new ReviewServiceImpl(reviewRepository, clientRepository, movieRepository);
+    }
+
+    private static BlockbusterLogService initBlockbusterLogService(BlockbusterLogRepository blockbusterLogRepository) {
+        return new BlockbusterLogServiceImpl(blockbusterLogRepository);
     }
 
 }

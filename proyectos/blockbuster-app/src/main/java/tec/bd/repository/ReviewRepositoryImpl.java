@@ -137,18 +137,16 @@ public class ReviewRepositoryImpl extends BaseRepository<Review, Integer> implem
 
     @Override
     protected Review toEntity(ResultSet resultSet) throws SQLException {
-        var movie = new Movie(
-                resultSet.getInt("id"),
-                resultSet.getString("title"));
-        var client = new Client(
-                resultSet.getInt("id"),
-                resultSet.getString("client_name"));
+        var movie = new Movie();
+        movie.setMovieId(resultSet.getInt("movie_id"));
+        var client = new Client();
+        client.setClientId(resultSet.getInt("client_id"));
         return new Review(
                 resultSet.getInt("id"),
                 resultSet.getInt("rating"),
                 resultSet.getString("review_text"),
                 resultSet.getDate("created_on"),
-                client, movie);
+                movie, client);
     }
 
 }

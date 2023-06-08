@@ -25,11 +25,6 @@ public class Movie {
         this.unitsAvailable = unitsAvailable;
     }
 
-    public Movie(int movieId, String title) {
-        this.movieId = movieId;
-        this.title = title;
-    }
-
     public int getMovieId() {
         return movieId;
     }

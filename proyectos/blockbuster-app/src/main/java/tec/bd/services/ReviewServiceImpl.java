@@ -85,7 +85,7 @@ public class ReviewServiceImpl implements ReviewService {
         var reviewInCatalog = this.reviewRepository.findById(reviewId);
 
         reviewInCatalog.ifPresentOrElse((r) -> {
-            this.ReviewRepository.delete(reviewId);
+            this.reviewRepository.delete(reviewId);
         }, () -> {
             LOGGER.debug("Review id {} doesnt exist in catalog", reviewId);
             new RuntimeException("Review doesnt exists in catalog");

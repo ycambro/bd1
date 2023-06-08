@@ -134,15 +134,13 @@ public class MovieRepositoryImpl extends BaseRepository<Movie, Integer> implemen
 
     @Override
     protected Movie toEntity(ResultSet resultSet) throws SQLException {
-        var category = new Category(
-                resultSet.getInt("category_id"),
-                resultSet.getString("category_name"));
+        var category = new Category();
+        category.setCategoryId(resultSet.getInt("category_id"));
         return new Movie(
                 resultSet.getInt("id"),
                 resultSet.getString("title"),
-                resultSet.getDate("release_date"),
-                resultSet.getInt("units_available"),
-                category);
+                resultSet.getDate("release_date"), 
+                category, resultSet.getInt("units_available"));
     }
 
 }

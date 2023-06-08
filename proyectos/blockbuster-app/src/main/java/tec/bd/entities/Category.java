@@ -16,11 +16,6 @@ public class Category {
         this.description = description;
     }
 
-    public Category(int categoryId, String categoryName) {
-        this.categoryId = categoryId;
-        this.categoryName = categoryName;
-    }
-
     public int getCategoryId() {
         return categoryId;
     }

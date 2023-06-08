@@ -1,4 +1,4 @@
-package tec.bd.movies.cli;
+package tec.bd.cli;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.HelpCommand;
@@ -39,7 +39,7 @@ import tec.bd.cli.movies.*;
 
                 HelpCommand.class
         },
-        description = "Movie Catalog")
+        description = "Blockbuster Catalog")
 public class MainCommand implements Runnable {
 
     @Override
