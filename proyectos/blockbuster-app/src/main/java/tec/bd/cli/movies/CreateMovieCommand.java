@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
-import tec.bd.entities.Category;
 import tec.bd.entities.Movie;
 
 import java.util.Date;
@@ -32,12 +31,10 @@ public class CreateMovieCommand implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-
-        var category = new Category();
         var movie = new Movie();
-
-        category.setCategoryId(movieCategoryId);
-        movie.setCategory(category);
+        applicationContext.categoryService.getCategoryById(movieCategoryId).ifPresentOrElse((category) -> {
+            movie.setCategory(category);
+        }, () -> System.out.println("Category id " + movieCategoryId + " not found"));
         movie.setReleaseDate(movieReleaseDate);
         movie.setTitle(movieTitle);
         movie.setUnitsAvailable(movieUnitsAvailable);

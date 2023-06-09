@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
-import tec.bd.entities.Client;
-import tec.bd.entities.Movie;
 import tec.bd.entities.Review;
 
 import java.util.Date;
@@ -41,17 +39,18 @@ public class UpdateReviewCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var review = new Review();
-        var movie = new Movie();
-        var client = new Client();
 
-        movie.setMovieId(reviewMovieId);
-        client.setClientId(reviewClientId);
         review.setReviewId(reviewId);
         review.setCreatedOn(reviewCreatedOn);
         review.setRating(reviewRating);
         review.setReviewText(reviewText);
-        review.setClient(client);
-        review.setMovie(movie);
+        applicationContext.movieService.getMovieById(reviewMovieId).ifPresentOrElse((movie) -> {
+            review.setMovie(movie);
+        }, () -> System.out.println("Movie id " + reviewMovieId + " not found"));
+
+        applicationContext.clientService.getClientById(reviewClientId).ifPresentOrElse((client) -> {
+            review.setClient(client);
+        }, () -> System.out.println("Client id " + reviewClientId + " not found"));
 
         try {
             var updatedReview = applicationContext.reviewService.updateReview(review);
