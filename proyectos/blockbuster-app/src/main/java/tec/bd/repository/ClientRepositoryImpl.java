@@ -107,6 +107,7 @@ public class ClientRepositoryImpl extends BaseRepository<Client, Integer> implem
                 stmt.setString(2, entity.getLastname());
                 stmt.setString(3, entity.getEmail());
                 stmt.setString(4, entity.getPhoneNumber());
+                stmt.setInt(5, entity.getClientId());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 

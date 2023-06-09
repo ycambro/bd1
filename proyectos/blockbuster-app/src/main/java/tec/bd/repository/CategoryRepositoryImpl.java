@@ -103,6 +103,7 @@ public class CategoryRepositoryImpl extends BaseRepository<Category, Integer> im
             try (PreparedStatement stmt = conn.prepareStatement(CATEGORY_UPDATE_CATEGORY)) {
                 stmt.setString(1, entity.getCategoryName());
                 stmt.setString(2, entity.getDescription());
+                stmt.setInt(5, entity.getCategoryId());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 

@@ -107,6 +107,7 @@ public class MovieRepositoryImpl extends BaseRepository<Movie, Integer> implemen
                 stmt.setDate(2, new java.sql.Date(entity.getReleaseDate().getTime()));
                 stmt.setInt(3, entity.getUnitsAvailable());
                 stmt.setInt(4, entity.getCategory().getCategoryId());
+                stmt.setInt(5, entity.getMovieId());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 

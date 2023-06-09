@@ -106,6 +106,7 @@ public class RentalsRepositoryImpl extends BaseRepository<Rentals, Integer> impl
                 stmt.setDate(1, new java.sql.Date(entity.getRentalDate().getTime()));
                 stmt.setInt(2, entity.getClient().getClientId());
                 stmt.setInt(3, entity.getMovie().getMovieId());
+                stmt.setInt(4, entity.getRentId());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 

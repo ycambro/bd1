@@ -110,6 +110,7 @@ public class ReviewRepositoryImpl extends BaseRepository<Review, Integer> implem
                 stmt.setDate(3, new java.sql.Date(entity.getCreatedOn().getTime()));
                 stmt.setInt(4, entity.getClient().getClientId());
                 stmt.setInt(5, entity.getMovie().getMovieId());
+                stmt.setInt(6, entity.getReviewId());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 
