@@ -32,6 +32,10 @@ public class CreateClientCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var client = new Client();
+        client.setName(clientName);
+        client.setLastname(clientLastname);
+        client.setEmail(clientEmail);
+        client.setPhoneNumber(clientPhoneNumber);
 
         try {
             var newClient = applicationContext.clientService.newClient(client);

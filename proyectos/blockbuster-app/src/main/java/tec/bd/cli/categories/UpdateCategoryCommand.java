@@ -26,6 +26,8 @@ public class UpdateCategoryCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var category = new Category();
+        category.setCategoryName(categoryName);
+        category.setDescription(categoryDescription);
 
         try {
             var updatedCategory = applicationContext.categoryService.updateCategory(category);

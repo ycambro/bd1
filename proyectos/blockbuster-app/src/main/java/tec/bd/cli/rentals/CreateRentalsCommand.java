@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Client;
+import tec.bd.entities.Movie;
 import tec.bd.entities.Rentals;
 
 import java.util.Date;
@@ -31,6 +33,14 @@ public class CreateRentalsCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var rental = new Rentals();
+        var movie = new Movie();
+        var client = new Client();
+
+        movie.setMovieId(rentalsMovieId);
+        client.setClientId(rentalsClientId);
+        rental.setRentalDate(rentalsDate);
+        rental.setClient(client);
+        rental.setMovie(movie);
 
         try {
             var newRentals = applicationContext.rentalsService.newRentals(rental);

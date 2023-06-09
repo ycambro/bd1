@@ -73,7 +73,7 @@ public class ApplicationContext {
          * var username = System.getenv("MOVIES_DB_USERNAME");
          * var password = System.getenv("MOVIES_DB_PASSWORD");
          */
-        hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/blockbuster-app");
+        hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/blockbuster?serverTimezone=UTC");
         hikariConfig.setUsername("root");
         hikariConfig.setPassword("JUanluis1616*");
         /*

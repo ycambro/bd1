@@ -26,6 +26,8 @@ public class CreateCategoryCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var category = new Category();
+        category.setCategoryName(categoryName);
+        category.setDescription(description);
 
         try {
             var newCategory = applicationContext.categoryService.newCategory(category);

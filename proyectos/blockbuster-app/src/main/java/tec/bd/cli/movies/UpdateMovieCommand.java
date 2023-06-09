@@ -6,6 +6,7 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Category;
 import tec.bd.entities.Movie;
 
 import java.util.Date;
@@ -36,7 +37,14 @@ public class UpdateMovieCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
+        var category = new Category();
         var movie = new Movie();
+
+        category.setCategoryId(movieCategoryId);
+        movie.setCategory(category);
+        movie.setReleaseDate(movieReleaseDate);
+        movie.setTitle(movieTitle);
+        movie.setUnitsAvailable(movieUnitsAvailable);
 
         try {
             var updatedMovie = applicationContext.movieService.updateMovie(movie);
