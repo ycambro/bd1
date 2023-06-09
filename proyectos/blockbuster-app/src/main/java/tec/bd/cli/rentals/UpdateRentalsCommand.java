@@ -19,6 +19,9 @@ public class UpdateRentalsCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
+    @Parameters(paramLabel = "<rent id>", description = "The rent id")
+    private int rentalId;
+
     @Parameters(paramLabel = "<date>", description = "date of the rental")
     private Date rentalsDate;
 
@@ -37,6 +40,7 @@ public class UpdateRentalsCommand implements Callable<Integer> {
 
         movie.setMovieId(rentalsMovieId);
         client.setClientId(rentalsClientId);
+        rentals.setRentId(rentalId);
         rentals.setRentalDate(rentalsDate);
         rentals.setClient(client);
         rentals.setMovie(movie);

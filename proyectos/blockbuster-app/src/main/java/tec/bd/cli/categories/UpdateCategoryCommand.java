@@ -16,6 +16,9 @@ public class UpdateCategoryCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
+    @Parameters(paramLabel = "<category id>", description = "The category id")
+    private int categoryId;
+
     @Parameters(paramLabel = "<category name>", description = "The category name")
     private String categoryName;
 
@@ -26,6 +29,7 @@ public class UpdateCategoryCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var category = new Category();
+        category.setCategoryId(categoryId);
         category.setCategoryName(categoryName);
         category.setDescription(categoryDescription);
 

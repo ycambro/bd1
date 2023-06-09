@@ -41,6 +41,7 @@ public class UpdateMovieCommand implements Callable<Integer> {
         var movie = new Movie();
 
         category.setCategoryId(movieCategoryId);
+        movie.setMovieId(movieId);
         movie.setCategory(category);
         movie.setReleaseDate(movieReleaseDate);
         movie.setTitle(movieTitle);

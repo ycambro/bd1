@@ -16,6 +16,9 @@ public class UpdateClientCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
+    @Parameters(paramLabel = "<client id>", description = "The client id")
+    private int clientId;
+
     @Parameters(paramLabel = "<client name>", description = "The client name")
     private String clientName;
 
@@ -32,6 +35,7 @@ public class UpdateClientCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var client = new Client();
+        client.setClientId(clientId);
         client.setName(clientName);
         client.setLastname(clientLastname);
         client.setEmail(clientEmail);

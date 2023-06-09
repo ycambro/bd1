@@ -19,6 +19,9 @@ public class UpdateReviewCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
+    @Parameters(paramLabel = "<review id>", description = "The review id")
+    private int reviewId;
+
     @Parameters(paramLabel = "<rating>", description = "The rating for the movie")
     private int reviewRating;
 
@@ -43,6 +46,7 @@ public class UpdateReviewCommand implements Callable<Integer> {
 
         movie.setMovieId(reviewMovieId);
         client.setClientId(reviewClientId);
+        review.setReviewId(reviewId);
         review.setCreatedOn(reviewCreatedOn);
         review.setRating(reviewRating);
         review.setReviewText(reviewText);
