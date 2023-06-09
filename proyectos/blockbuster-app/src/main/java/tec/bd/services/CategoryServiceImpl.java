@@ -5,10 +5,8 @@ import org.slf4j.LoggerFactory;
 import tec.bd.entities.Category;
 import tec.bd.repository.CategoryRepository;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static java.util.Objects.requireNonNull;
 

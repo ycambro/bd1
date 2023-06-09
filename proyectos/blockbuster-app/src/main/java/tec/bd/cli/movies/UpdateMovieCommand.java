@@ -4,14 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
-import tec.bd.entities.Category;
 import tec.bd.entities.Movie;
 
 import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Command(name = "movu", description = "Update movie data in catalog ")
@@ -39,7 +36,6 @@ public class UpdateMovieCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        var category = new Category();
         var movie = new Movie();
 
         try {

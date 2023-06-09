@@ -2,9 +2,6 @@ package tec.bd.repository;
 
 import tec.bd.entities.Movie;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

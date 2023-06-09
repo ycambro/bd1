@@ -6,10 +6,8 @@ import tec.bd.entities.Movie;
 import tec.bd.repository.CategoryRepository;
 import tec.bd.repository.MovieRepository;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import static java.util.Objects.requireNonNull;
 

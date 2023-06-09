@@ -3,14 +3,10 @@ package tec.bd.cli.categories;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
 import tec.bd.entities.Category;
-import tec.bd.entities.Movie;
 
-import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Command(name = "catc", description = "Create new category in catalog ")

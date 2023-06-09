@@ -3,13 +3,10 @@ package tec.bd.cli.log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
+
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
-import tec.bd.entities.BlockbusterLog;
 
-import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Command(name = "log", description = "Show you the last activities saved in the log")

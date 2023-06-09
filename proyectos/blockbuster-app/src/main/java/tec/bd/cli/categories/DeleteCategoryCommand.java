@@ -6,7 +6,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
 import tec.bd.entities.Movie;
-import tec.bd.entities.Rentals;
 
 import java.util.concurrent.Callable;
 

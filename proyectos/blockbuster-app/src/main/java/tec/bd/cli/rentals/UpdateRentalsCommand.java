@@ -2,17 +2,12 @@ package tec.bd.cli.rentals;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
-import tec.bd.entities.Client;
-import tec.bd.entities.Movie;
 import tec.bd.entities.Rentals;
 
 import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Command(name = "loanu", description = "Update rating data in catalog ")
@@ -34,8 +29,6 @@ public class UpdateRentalsCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        var client = new Client();
-        var movie = new Movie();
         var rentals = new Rentals();
 
         try {

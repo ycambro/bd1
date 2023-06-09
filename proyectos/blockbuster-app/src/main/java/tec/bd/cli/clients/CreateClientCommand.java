@@ -3,13 +3,10 @@ package tec.bd.cli.clients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
 import tec.bd.entities.Client;
 
-import java.util.Date;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 
 @Command(name = "clic", description = "Create new client in catalog ")
