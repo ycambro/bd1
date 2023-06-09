@@ -19,14 +19,14 @@ public class CreateRentalsCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
-    @Parameters(paramLabel = "<date>", description = "date of the rental")
-    private Date rentalsDate;
-
     @Parameters(paramLabel = "<client id>", description = "The client id")
     private int rentalsClientId;
 
     @Parameters(paramLabel = "<movie id>", description = "The rental movie id")
     private int rentalsMovieId;
+
+    @Parameters(paramLabel = "<date>", description = "date of the rental")
+    private Date rentalsDate;
 
 
     @Override

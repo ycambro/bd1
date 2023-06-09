@@ -140,7 +140,7 @@ public class RentalsRepositoryImpl extends BaseRepository<Rentals, Integer> impl
         client.setClientId(resultSet.getInt("client_id"));
         return new Rentals(
                 resultSet.getInt("id"),
-                resultSet.getDate("release_date"),
+                resultSet.getDate("rental_date"),
                 movie, client);
     }
 

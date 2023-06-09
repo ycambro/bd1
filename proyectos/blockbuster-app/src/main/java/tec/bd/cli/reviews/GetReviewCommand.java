@@ -30,7 +30,7 @@ public class GetReviewCommand implements Runnable {
                 System.out.println("Created On: " + review.getCreatedOn());
                 System.out.println("Cliend Id: " + review.getClient().getClientId());
                 System.out.println("Movie Id: " + review.getMovie().getMovieId());
-            }, () -> System.out.println("Movie id " + reviewId + " not found"));
+            }, () -> System.out.println("Review id " + reviewId + " not found"));
         }
     }
 }

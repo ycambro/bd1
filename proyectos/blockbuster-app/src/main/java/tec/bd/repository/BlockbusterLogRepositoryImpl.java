@@ -30,6 +30,7 @@ public class BlockbusterLogRepositoryImpl extends BaseRepository<BlockbusterLog,
             ResultSet resultSet = stmt.executeQuery();
             return this.resultSetToEntityList(resultSet);
         } catch (SQLException e) {
+            System.out.println("kk " + e);
             LOGGER.error("Error showing the log", e);
             throw new RuntimeException(e);
         }

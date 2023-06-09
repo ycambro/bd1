@@ -25,6 +25,7 @@ public class DeleteRentalsCommand implements Callable<Integer> {
             System.out.println("The rental " + rentalId + " was deleted sucessfully.");
             return 0;
         } catch (Exception e) {
+            System.out.println("kk " + e);
             LOGGER.error(e.getMessage(), e);
             return 1;
         }

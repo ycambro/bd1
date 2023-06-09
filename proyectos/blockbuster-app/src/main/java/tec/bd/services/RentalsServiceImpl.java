@@ -72,7 +72,6 @@ public class RentalsServiceImpl implements RentalsService {
             LOGGER.error("Rentals id {} is invalid", rentalsId);
             throw new RuntimeException("Rentals id is invalid");
         }
-
         var rentalsInCatalog = this.rentalsRepository.findById(rentalsId);
 
         rentalsInCatalog.ifPresentOrElse((re) -> {

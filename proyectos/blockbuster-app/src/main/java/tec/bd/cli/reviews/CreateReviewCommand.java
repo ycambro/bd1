@@ -19,6 +19,12 @@ public class CreateReviewCommand implements Callable<Integer> {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();
 
+    @Parameters(paramLabel = "<client id>", description = "The client id")
+    private int reviewClientId;
+
+    @Parameters(paramLabel = "<movie id>", description = "The review movie id")
+    private int reviewMovieId;
+
     @Parameters(paramLabel = "<rating>", description = "The rating for the movie")
     private int reviewRating;
 
@@ -27,12 +33,6 @@ public class CreateReviewCommand implements Callable<Integer> {
 
     @Parameters(paramLabel = "<date>", description = "date of the review")
     private Date reviewCreatedOn;
-
-    @Parameters(paramLabel = "<client id>", description = "The client id")
-    private int reviewClientId;
-
-    @Parameters(paramLabel = "<movie id>", description = "The review movie id")
-    private int reviewMovieId;
 
 
     @Override
@@ -62,7 +62,7 @@ public class CreateReviewCommand implements Callable<Integer> {
         }, () -> System.out.println("Client id " + reviewClientId + " not found"));
         review.setClient(client);
         review.setMovie(movie);
-
+        
         try {
             var newReview = applicationContext.reviewService.newReview(review);
 
