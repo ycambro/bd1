@@ -36,6 +36,7 @@ public class CreateMovieCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var category = new Category();
+
         var movie = new Movie();
 
         try {

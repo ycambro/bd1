@@ -53,8 +53,8 @@ public class ClientRepositoryImpl extends BaseRepository<Client, Integer> implem
                     PreparedStatement.RETURN_GENERATED_KEYS)) {
                 stmt.setString(1, entity.getName());
                 stmt.setString(2, entity.getLastname());
-                stmt.setString(2, entity.getEmail());
-                stmt.setString(2, entity.getPhoneNumber());
+                stmt.setString(3, entity.getEmail());
+                stmt.setString(4, entity.getPhoneNumber());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 
@@ -105,8 +105,8 @@ public class ClientRepositoryImpl extends BaseRepository<Client, Integer> implem
             try (PreparedStatement stmt = conn.prepareStatement(CLIENTE_UPDATE_CLIENT)) {
                 stmt.setString(1, entity.getName());
                 stmt.setString(2, entity.getLastname());
-                stmt.setString(2, entity.getEmail());
-                stmt.setString(2, entity.getPhoneNumber());
+                stmt.setString(3, entity.getEmail());
+                stmt.setString(4, entity.getPhoneNumber());
                 var rowsAffected = stmt.executeUpdate(); // se realiza la operacion de escritura
                 conn.commit();
 

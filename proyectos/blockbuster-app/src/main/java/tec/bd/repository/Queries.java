@@ -29,11 +29,11 @@ public class Queries {
 
         public static final String CLIENTE_FIND_ALL_QUERY = "select * from CLIENTE";
 
-        public static final String CLIENTE_INSERT_QUERY = "insert into CLIENTE(client_name, lastname, email, phone_number) values (?, ?, ?, ?)";
+        public static final String CLIENTE_INSERT_QUERY = "insert into CLIENTE(client_name, lastname, email, phone_number, activity) values (?, ?, ?, ?, ?)";
 
         public static final String CLIENTE_DELETE_CLIENT_ID = "delete from CLIENTE where id = ?";
 
-        public static final String CLIENTE_UPDATE_CLIENT = "update CLIENTE set client_name = ?, lastname = ?, email = ?, phone_number = ?";
+        public static final String CLIENTE_UPDATE_CLIENT = "update CLIENTE set client_name = ?, lastname = ?, email = ?, phone_number = ?, activity = ?";
 
         public static final String RENTALS_FIND_BY_ID_QUERY = "select id, rental_date, client_id, movie_id from RENTALS where id = ?";
 

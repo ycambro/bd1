@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Movie;
+import tec.bd.entities.Rentals;
 
 import java.util.concurrent.Callable;
 
@@ -21,6 +23,12 @@ public class DeleteCategoryCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         try {
+            var movies = applicationContext.movieService.getMovies();
+            for (Movie mov : movies) {
+                if (mov.getCategory().getCategoryId() == categoryId) {
+                    throw new RuntimeException("This category have a movie associated");
+                }
+            }
             applicationContext.categoryService.removeCategory(categoryId);
             System.out.println("The category " + categoryId + " was deleted sucessfully.");
             return 0;

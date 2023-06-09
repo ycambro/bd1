@@ -7,7 +7,7 @@ import tec.bd.cli.clients.*;
 import tec.bd.cli.categories.*;
 import tec.bd.cli.rentals.*;
 import tec.bd.cli.reviews.*;
-import tec.bd.cli.movies.*;
+import tec.bd.cli.log.*;
 
 @Command(
         name = "Blockbuster App",
@@ -36,6 +36,8 @@ import tec.bd.cli.movies.*;
                 DeleteReviewCommand.class,
                 GetReviewCommand.class,
                 UpdateReviewCommand.class,
+
+                SeeLog.class,
 
                 HelpCommand.class
         },

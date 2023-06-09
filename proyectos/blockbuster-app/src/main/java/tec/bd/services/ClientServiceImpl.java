@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tec.bd.entities.Client;
 import tec.bd.repository.ClientRepository;
+import tec.bd.repository.RentalsRepository;
 
 import java.util.Date;
 import java.util.List;

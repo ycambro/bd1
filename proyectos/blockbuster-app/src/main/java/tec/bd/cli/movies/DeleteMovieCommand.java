@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Rentals;
+import tec.bd.entities.Review;
 
 import java.util.concurrent.Callable;
 
@@ -21,6 +23,19 @@ public class DeleteMovieCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         try {
+            var rentals = applicationContext.rentalsService.getRentals();
+            for (Rentals re : rentals) {
+                if (re.getMovie().getMovieId() == movieId) {
+                    throw new RuntimeException("This movie is rental");
+                }
+            }
+
+            var reviews = applicationContext.reviewService.getReview();
+            for (Review rev : reviews) {
+                if (rev.getMovie().getMovieId() == movieId) {
+                    throw new RuntimeException("This movie has a review");
+                }
+            }
             applicationContext.movieService.removeMovie(movieId);
             System.out.println("The movie " + movieId + " was deleted sucessfully.");
             return 0;

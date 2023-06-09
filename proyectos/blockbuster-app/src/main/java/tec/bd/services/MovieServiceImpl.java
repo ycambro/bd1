@@ -75,6 +75,10 @@ public class MovieServiceImpl implements MovieService {
         var movieInCatalog = this.movieRepository.findById(movieId);
 
         movieInCatalog.ifPresentOrElse((m) -> {
+            if (m.getUnitsAvailable() <= 0) {
+                LOGGER.debug("The movie is rented!");
+                new RuntimeException("The movie is rented");
+            }
             this.movieRepository.delete(movieId);
         }, () -> {
             LOGGER.debug("Movie id {} doesnt exist in catalog", movieId);
