@@ -75,7 +75,7 @@ public class ApplicationContext {
          */
         hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/blockbuster-app");
         hikariConfig.setUsername("root");
-        hikariConfig.setPassword("juanluis1616*");
+        hikariConfig.setPassword("JUanluis1616*");
         /*
          * hikariConfig.setJdbcUrl(jdbcUrl);
          * hikariConfig.setUsername(username);
