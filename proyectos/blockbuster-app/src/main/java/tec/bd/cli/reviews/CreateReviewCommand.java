@@ -71,7 +71,7 @@ public class CreateReviewCommand implements Callable<Integer> {
             System.out.println("Review text: " + newReview.getReviewText());
             System.out.println("Created On: " + newReview.getCreatedOn());
             System.out.println("Cliend Id: " + newReview.getClient().getClientId());
-            System.out.println("Movie: " + newReview.getMovie().getTitle());
+            System.out.println("Movie Id: " + newReview.getMovie().getMovieId());
             return 0;
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

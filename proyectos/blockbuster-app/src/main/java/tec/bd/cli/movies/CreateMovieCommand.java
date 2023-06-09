@@ -50,7 +50,7 @@ public class CreateMovieCommand implements Callable<Integer> {
             System.out.println("Movie Id: " + newMovie.getMovieId());
             System.out.println("Title: " + newMovie.getTitle());
             System.out.println("Release Date: " + newMovie.getReleaseDateOnly());
-            System.out.println("Category: " + newMovie.getCategory().getCategoryName());
+            System.out.println("Category Id: " + newMovie.getCategory().getCategoryId());
             System.out.println("Units: " + newMovie.getUnitsAvailable());
             return 0;
         } catch (Exception e) {

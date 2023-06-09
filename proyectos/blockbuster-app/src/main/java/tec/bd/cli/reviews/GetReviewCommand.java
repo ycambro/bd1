@@ -17,10 +17,10 @@ public class GetReviewCommand implements Runnable {
             var reviews = applicationContext.reviewService.getReview();
 
             System.out.println("Reviews Catalog");
-            System.out.println("Id\t Rating\t Review Text\t Created On\t Client Id\t Movie");
+            System.out.println("Id\t Rating\t Review Text\t Created On\t Client Id\t Movie Id");
             for (Review r : reviews) {
                 System.out.println(r.getReviewId() + "\t " + r.getRating() + "\t " + r.getReviewText() + "\t " + r.getCreatedOn()
-                        + "\t " + r.getClient().getClientId() + "\t " + r.getMovie().getTitle());
+                        + "\t " + r.getClient().getClientId() + "\t " + r.getMovie().getMovieId());
             }
         } else {
             applicationContext.reviewService.getReviewById(reviewId).ifPresentOrElse((review) -> {
@@ -29,7 +29,7 @@ public class GetReviewCommand implements Runnable {
                 System.out.println("Review text: " + review.getReviewText());
                 System.out.println("Created On: " + review.getCreatedOn());
                 System.out.println("Cliend Id: " + review.getClient().getClientId());
-                System.out.println("Movie: " + review.getMovie().getTitle());
+                System.out.println("Movie Id: " + review.getMovie().getMovieId());
             }, () -> System.out.println("Movie id " + reviewId + " not found"));
         }
     }

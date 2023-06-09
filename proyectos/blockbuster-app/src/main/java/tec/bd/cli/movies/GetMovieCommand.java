@@ -27,7 +27,7 @@ public class GetMovieCommand implements Runnable {
                 System.out.println("Movie Id: " + movie.getMovieId());
                 System.out.println("Title: " + movie.getTitle());
                 System.out.println("Release Date: " + movie.getReleaseDateOnly());
-                System.out.println("Category: " + movie.getCategory().getCategoryName());
+                System.out.println("Category Id: " + movie.getCategory().getCategoryId());
                 System.out.println("Units Available: " + movie.getUnitsAvailable());
             }, () -> System.out.println("Movie id " + movieId + " not found"));
         }

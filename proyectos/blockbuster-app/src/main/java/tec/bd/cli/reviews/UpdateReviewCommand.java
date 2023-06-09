@@ -74,7 +74,7 @@ public class UpdateReviewCommand implements Callable<Integer> {
             System.out.println("Review text: " + updatedReview.getReviewText());
             System.out.println("Created On: " + updatedReview.getCreatedOn());
             System.out.println("Cliend Id: " + updatedReview.getClient().getClientId());
-            System.out.println("Movie: " + updatedReview.getMovie().getTitle());
+            System.out.println("Movie Id: " + updatedReview.getMovie().getMovieId());
             return 0;
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

@@ -57,7 +57,7 @@ public class UpdateMovieCommand implements Callable<Integer> {
             System.out.println("Movie Id: " + updatedMovie.getMovieId());
             System.out.println("Title: " + updatedMovie.getTitle());
             System.out.println("Release Date: " + updatedMovie.getReleaseDateOnly());
-            System.out.println("Category: " + updatedMovie.getCategory().getCategoryName());
+            System.out.println("Category Id: " + updatedMovie.getCategory().getCategoryId());
             System.out.println("Units Available: " + updatedMovie.getUnitsAvailable());
             return 0;
         } catch (Exception e) {

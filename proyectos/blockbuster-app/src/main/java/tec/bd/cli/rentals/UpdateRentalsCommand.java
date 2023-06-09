@@ -62,7 +62,7 @@ public class UpdateRentalsCommand implements Callable<Integer> {
             System.out.println("Rental Id: " + updatedRentals.getRentId());
             System.out.println("Created On: " + updatedRentals.getRentalDate());
             System.out.println("Cliend Id: " + updatedRentals.getClient().getClientId());
-            System.out.println("Movie: " + updatedRentals.getMovie().getTitle());
+            System.out.println("Movie Id: " + updatedRentals.getMovie().getMovieId());
             return 0;
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);

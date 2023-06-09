@@ -59,7 +59,7 @@ public class CreateRentalsCommand implements Callable<Integer> {
             System.out.println("Rental Id: " + newRentals.getRentId());
             System.out.println("Created On: " + newRentals.getRentalDate());
             System.out.println("Cliend Id: " + newRentals.getClient().getClientId());
-            System.out.println("Movie: " + newRentals.getMovie().getTitle());
+            System.out.println("Movie Id: " + newRentals.getMovie().getMovieId());
             return 0;
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
