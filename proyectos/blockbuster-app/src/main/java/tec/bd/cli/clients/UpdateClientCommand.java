@@ -9,7 +9,7 @@ import tec.bd.entities.Client;
 
 import java.util.concurrent.Callable;
 
-@Command(name = "catu", description = "Update category data in catalog ")
+@Command(name = "cliu", description = "Update category data in catalog ")
 public class UpdateClientCommand implements Callable<Integer> {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(UpdateClientCommand.class);

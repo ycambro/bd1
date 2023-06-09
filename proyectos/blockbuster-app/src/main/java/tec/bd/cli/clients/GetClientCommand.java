@@ -4,7 +4,7 @@ import picocli.CommandLine;
 import tec.bd.ApplicationContext;
 import tec.bd.entities.Client;
 
-@CommandLine.Command(name = "catr", description = "Get category in catalog by id")
+@CommandLine.Command(name = "clir", description = "Get category in catalog by id")
 public class GetClientCommand implements Runnable {
 
     private static ApplicationContext applicationContext = ApplicationContext.init();

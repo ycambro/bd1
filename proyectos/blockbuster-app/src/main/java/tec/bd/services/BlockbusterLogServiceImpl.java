@@ -25,6 +25,7 @@ public class BlockbusterLogServiceImpl implements BlockbusterLogService {
         if (amount <= 0) {
             throw new RuntimeException("Amount log can not be less than 1");
         } else {
+            LOGGER.debug("Showing the last entries in the log via adhoc SQL commands");
             return this.blockbusterLogRepository.findEntry(amount);
         }
     }
