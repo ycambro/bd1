@@ -29,7 +29,7 @@ public class Queries {
 
         public static final String CLIENTE_FIND_ALL_QUERY = "select * from CLIENTE";
 
-        public static final String CLIENTE_INSERT_QUERY = "insert into CLIENTE(client_name, lastname, email, phone_number, activity) values (?, ?, ?, ?, ?)";
+        public static final String CLIENTE_INSERT_QUERY = "insert into CLIENTE(client_name, lastname, email, phone_number) values (?, ?, ?, ?)";
 
         public static final String CLIENTE_DELETE_CLIENT_ID = "delete from CLIENTE where id = ?";
 
