@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Client;
+import tec.bd.entities.Movie;
 import tec.bd.entities.Rentals;
 
 import java.util.Date;
@@ -33,15 +35,27 @@ public class UpdateRentalsCommand implements Callable<Integer> {
     public Integer call() throws Exception {
 
         var rentals = new Rentals();
+        var movie = new Movie();
+        var client = new Client();
         rentals.setRentId(rentalsClientId);
-        applicationContext.movieService.getMovieById(rentalsMovieId).ifPresentOrElse((movie) -> {
-            rentals.setMovie(movie);
+        applicationContext.movieService.getMovieById(rentalsMovieId).ifPresentOrElse((mov) -> {
+            movie.setMovieId(mov.getMovieId());
+            movie.setCategory(mov.getCategory());
+            movie.setReleaseDate(mov.getReleaseDate());
+            movie.setTitle(mov.getTitle());
+            movie.setUnitsAvailable(mov.getUnitsAvailable());
         }, () -> System.out.println("Movie id " + rentalsMovieId + " not found"));
 
-        applicationContext.clientService.getClientById(rentalsClientId).ifPresentOrElse((client) -> {
-            rentals.setClient(client);
+        applicationContext.clientService.getClientById(rentalsClientId).ifPresentOrElse((clie) -> {
+            client.setClientId(clie.getClientId());
+            client.setEmail(clie.getEmail());
+            client.setLastname(clie.getLastname());
+            client.setName(clie.getName());
+            client.setPhoneNumber(clie.getPhoneNumber());
         }, () -> System.out.println("Client id " + rentalsClientId + " not found"));
         rentals.setRentalDate(rentalsDate);
+        rentals.setClient(client);
+        rentals.setMovie(movie);
 
         try {
             var updatedRentals = applicationContext.rentalsService.updateRentals(rentals);

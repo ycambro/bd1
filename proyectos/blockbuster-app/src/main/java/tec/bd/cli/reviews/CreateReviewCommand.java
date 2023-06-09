@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 import tec.bd.ApplicationContext;
+import tec.bd.entities.Client;
+import tec.bd.entities.Movie;
 import tec.bd.entities.Review;
 
 import java.util.Date;
@@ -41,13 +43,25 @@ public class CreateReviewCommand implements Callable<Integer> {
         review.setCreatedOn(reviewCreatedOn);
         review.setRating(reviewRating);
         review.setReviewText(reviewText);
-        applicationContext.movieService.getMovieById(reviewMovieId).ifPresentOrElse((movie) -> {
-            review.setMovie(movie);
+        var movie = new Movie();
+        var client = new Client();
+        applicationContext.movieService.getMovieById(reviewMovieId).ifPresentOrElse((mov) -> {
+            movie.setMovieId(mov.getMovieId());
+            movie.setCategory(mov.getCategory());
+            movie.setReleaseDate(mov.getReleaseDate());
+            movie.setTitle(mov.getTitle());
+            movie.setUnitsAvailable(mov.getUnitsAvailable());
         }, () -> System.out.println("Movie id " + reviewMovieId + " not found"));
 
-        applicationContext.clientService.getClientById(reviewClientId).ifPresentOrElse((client) -> {
-            review.setClient(client);
+        applicationContext.clientService.getClientById(reviewClientId).ifPresentOrElse((clie) -> {
+            client.setClientId(clie.getClientId());
+            client.setEmail(clie.getEmail());
+            client.setLastname(clie.getLastname());
+            client.setName(clie.getName());
+            client.setPhoneNumber(clie.getPhoneNumber());
         }, () -> System.out.println("Client id " + reviewClientId + " not found"));
+        review.setClient(client);
+        review.setMovie(movie);
 
         try {
             var newReview = applicationContext.reviewService.newReview(review);
